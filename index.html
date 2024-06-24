@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png');
+    }
+
+    .calculator {
+      background-color: #333;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+
+    #display {
+      width: calc(100% - 40px);
+      margin-bottom: 20px;
+      padding: 10px;
+      font-size: 24px;
+      background-color: #eee;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      color: #333;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+    }
+
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(#4caf50, #388e3c);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: linear-gradient(#388e3c, #4caf50);
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div id="display"></div>
+    <div class="buttons">
+      <button onclick="addToDisplay('7')">7</button>
+      <button onclick="addToDisplay('8')">8</button>
+      <button onclick="addToDisplay('9')">9</button>
+      <button onclick="addToDisplay('+')">+</button>
+      <button onclick="addToDisplay('4')">4</button>
+      <button onclick="addToDisplay('5')">5</button>
+      <button onclick="addToDisplay('6')">6</button>
+      <button onclick="addToDisplay('-')">-</button>
+      <button onclick="addToDisplay('1')">1</button>
+      <button onclick="addToDisplay('2')">2</button>
+      <button onclick="addToDisplay('3')">3</button>
+      <button onclick="addToDisplay('*')">*</button>
+      <button onclick="addToDisplay('0')">0</button>
+      <button onclick="addToDisplay('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="addToDisplay('/')">/</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById('display');
+
+    function addToDisplay(value) {
+      display.innerHTML += value;
+    }
+
+    function calculate() {
+      try {
+        display.innerHTML = eval(display.innerHTML);
+      } catch(error) {
+        display.innerHTML = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
